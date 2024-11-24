@@ -297,8 +297,107 @@ public class ShoppingControl
     /// </summary>
     public void ManageCategories()
     {
-        // Similar to users/products, implement logic for adding, updating, or removing categories.
         Console.WriteLine("\n--- Manage Categories ---");
+        Console.WriteLine("1. Add Category");
+        Console.WriteLine("2. Remove Category");
+        Console.WriteLine("3. Update Category");
+        Console.Write("Enter your choice: ");
+
+        string choice = Console.ReadLine();
+        switch (choice)
+        {
+            case "1":
+                AddCategory();
+                break;
+            case "2":
+                RemoveCategory();
+                break;
+            case "3":
+                UpdateCategory();
+                break;
+            default:
+                Console.WriteLine("Invalid option. Returning to main menu.");
+                break;
+        }
+    }
+
+    private void AddCategory()
+    {
+        try
+        {
+            Console.Write("Enter category name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter category description: ");
+            string description = Console.ReadLine();
+
+            Category category = new Category
+            {
+                CategoryId = categoryList.Count + 1,
+                CategoryName = name,
+                CategoryDescription = description
+            };
+            categoryList.Add(category);
+            Console.WriteLine("Category added successfully.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error adding category: {ex.Message}");
+        }
+    }
+
+    private void RemoveCategory()
+    {
+        try
+        {
+            Console.Write("Enter category name to remove: ");
+            string name = Console.ReadLine();
+
+            Category category = categoryList.Find(c => c.CategoryName == name);
+            if (category != null)
+            {
+                categoryList.Remove(category);
+                Console.WriteLine("Category removed successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Category not found.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error removing category: {ex.Message}");
+        }
+    }
+
+    private void UpdateCategory()
+    {
+        try
+        {
+            Console.Write("Enter category name to update: ");
+            string name = Console.ReadLine();
+
+            Category category = categoryList.Find(c => c.CategoryName == name);
+            if (category != null)
+            {
+                Console.Write("Enter new category name: ");
+string newName = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newName)) category.CategoryName = newName;
+
+                Console.Write("Enter new category description: ");
+                string newDescription = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newDescription)) category.CategoryDescription = newDescription;
+
+                Console.WriteLine("Category updated successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Category not found.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating category: {ex.Message}");
+        }
     }
 
     /// <summary>
@@ -321,6 +420,14 @@ public class ShoppingControl
     // Sample data initializer
     private void InitializeSampleData()
     {
-        // Initialize users, products, and categories for demonstration.
-    }
-}
+        // Sample users
+        userList.Add(new User { UserName = "admin", Password = "admin123" });
+        userList.Add(new User { UserName = "customer", Password = "cust123" });
+
+        // Sample categories
+        categoryList.Add(new Category { CategoryName = "Electronics", CategoryDescription = "All electronic items" });
+        categoryList.Add(new Category { CategoryName = "Clothing", CategoryDescription = "Apparel and fashion" });
+
+        // Sample products
+        productList.Add(new Product { ProductName = "Smartphone", ProductDescription = "Latest model smartphone", Price = 699.99, StockQuantity = 50 });
+        productList.Add(new Product { ProductName = "Laptop", ProductDescription = "Gaming laptop with high specs", Price = 1199.99, StockQuantity = 20 });
