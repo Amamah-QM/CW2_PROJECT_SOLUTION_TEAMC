@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class ShoppingBasket
 {
     // List to store products and their quantities in the shopping basket
