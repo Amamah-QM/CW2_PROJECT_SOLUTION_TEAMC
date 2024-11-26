@@ -42,3 +42,9 @@ public class User
             Console.WriteLine($"Error updating profile: {ex.Message}");
         }
     }
+    // Handles user logout process
+    public void Logout()
+    {
+        Console.WriteLine($"{UserName} has logged out.");
+    }
+}
