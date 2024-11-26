@@ -13,3 +13,13 @@ public class Category
         CategoryDescription = categoryDescription;
     }
 
+    // Displays formatted category information to console
+    public void DisplayCategoryInfo()
+    {
+        Console.WriteLine($"\n--- Category Info ---");
+        Console.WriteLine($"ID: {CategoryId}");
+        Console.WriteLine($"Name: {CategoryName}");
+        Console.WriteLine($"Description: {CategoryDescription}");
+    }
+}
+
