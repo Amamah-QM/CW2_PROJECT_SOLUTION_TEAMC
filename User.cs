@@ -1,50 +1,102 @@
 using System;
+using System.Collections.Generic;
 
-public class User
+namespace ShoppingControl
 {
-    // Basic user information for account management and authentication
-    public int UserId { get; set; }
-    public string UserName { get; set; }
-    public string Password { get; set; }
-    public string UserEmail { get; set; }
 
-    // Contact and shipping address information
-    public string PhoneNumber { get; set; }
-    public string Street { get; set; }
-    public string City { get; set; }
-    public string Postcode { get; set; }
-// Updates user profile information while handling potential errors
-    public void UpdateProfile()
+    public class User
     {
-        try
+        // Basic user information for account management and authentication
+        private int userId;
+        private string userName;
+        private string password;
+        private string userEmail;
+        private phoneNumber;
+        private string street;
+        private string city;
+        private string postcode;
+        
+        public int UserID 
+        { 
+            get { return userId; } 
+            set {userId = value; } 
+        }
+        
+        public string UserName 
+        { 
+            get { return userName; } 
+            set {userName = value; } 
+        }
+        
+        public string Password 
+        { 
+            get { return password; } 
+            set {password = value; } 
+        }
+        
+        public string UserEmail 
+        { 
+            get { return userEmail; } 
+            set {userEmail = value; } 
+        }
+        
+        public string PhoneNumber 
+        { 
+            get { return phoneNumber; } 
+            set {phoneNumber = value; } 
+        }
+        
+        public string Street 
+        { 
+            get { return street; } 
+            set {street = value; } 
+        }
+        
+        public string City 
+        { 
+            get { return city; } 
+            set {city = value; } 
+        }
+        
+        public string Postcode 
+        { 
+            get { return postcode; } 
+            set {postcode = value; } 
+        }
+        
+    // Updates user profile information while handling potential errors
+        public virtual void UpdateProfile()
         {
-            Console.WriteLine("\n--- Update Profile ---");
+            try
+            {
+                Console.WriteLine("\n--- Update Profile ---");
             
-            // Only update fields if new values are provided
-            Console.Write("Enter new email (leave blank to keep current): ");
-            string newEmail = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(newEmail))
-            {
-                UserEmail = newEmail;
-            }
+                // Only update fields if new values are provided
+                Console.Write("Enter new email (leave blank to keep current): ");
+                string newEmail = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newEmail))
+                {
+                    UserEmail = newEmail;
+                }
 
-            Console.Write("Enter new phone number (leave blank to keep current): ");
-            string newPhone = Console.ReadLine();
-            if (!string.IsNullOrWhiteSpace(newPhone))
-            {
-                PhoneNumber = newPhone;
-            }
+                Console.Write("Enter new phone number (leave blank to keep current): ");
+                string newPhone = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newPhone))
+                {
+                    PhoneNumber = newPhone;
+                }
 
-            Console.WriteLine("Profile updated successfully.");
+                Console.WriteLine("Profile updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating profile: {ex.Message}");
+            }
         }
-        catch (Exception ex)
+        // Handles user logout process
+        public virtual void Logout()
         {
-            Console.WriteLine($"Error updating profile: {ex.Message}");
+            Console.WriteLine($"{UserName} has logged out.");
         }
-    }
-    // Handles user logout process
-    public void Logout()
-    {
-        Console.WriteLine($"{UserName} has logged out.");
     }
 }
