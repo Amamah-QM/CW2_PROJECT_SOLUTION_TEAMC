@@ -19,49 +19,49 @@ namespace ShoppingControl
         public int UserID 
         { 
             get { return userId; } 
-            set {userId = value; } 
+            set { userId = value; } 
         }
         
         public string UserName 
         { 
             get { return userName; } 
-            set {userName = value; } 
+            set { userName = value; } 
         }
         
         public string Password 
         { 
             get { return password; } 
-            set {password = value; } 
+            set { password = value; } 
         }
         
         public string UserEmail 
         { 
             get { return userEmail; } 
-            set {userEmail = value; } 
+            set { userEmail = value; } 
         }
         
         public string PhoneNumber 
         { 
             get { return phoneNumber; } 
-            set {phoneNumber = value; } 
+            set { phoneNumber = value; } 
         }
         
         public string Street 
         { 
             get { return street; } 
-            set {street = value; } 
+            set { street = value; } 
         }
         
         public string City 
         { 
             get { return city; } 
-            set {city = value; } 
+            set { city = value; } 
         }
         
         public string Postcode 
         { 
             get { return postcode; } 
-            set {postcode = value; } 
+            set { postcode = value; } 
         }
         
     // Updates user profile information while handling potential errors
