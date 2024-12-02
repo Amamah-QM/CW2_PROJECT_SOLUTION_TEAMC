@@ -6,14 +6,14 @@ namespace ShoppingControl
     public class Customer : User
     {
         private string role;
-        private bool status;
+        private string status;
         
         public string Role {
             get { return role; } 
             set { role = value; }
         }
         
-        public bool Status { 
+        public string Status { 
             get { return status; }
             set { status = value; }
         }
