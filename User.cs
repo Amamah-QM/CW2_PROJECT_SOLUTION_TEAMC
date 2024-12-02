@@ -11,7 +11,7 @@ namespace ShoppingControl
         private string userName;
         private string password;
         private string userEmail;
-        private phoneNumber;
+        private string phoneNumber;
         private string street;
         private string city;
         private string postcode;
