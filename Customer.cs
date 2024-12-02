@@ -12,11 +12,6 @@ namespace ShoppingControl
             get { return role; } 
             set { role = value; }
         }
-        
-        public string Status { 
-            get { return status; }
-            set { status = value; }
-        }
 
         private ShoppingBasket shoppingBasket;
 
@@ -43,14 +38,14 @@ namespace ShoppingControl
                     Password = "password123",
                     Role = "Customer",
                     Status = "Active"
-                }
+                },
                 new Customer
                 {
                     UserName = "jane_smith",
                     Password = "securepass",
                     Role = "Customer",
                     Status = "Inactive"
-                }
+                },
                 new Customer
                 {
                     UserName = "alice_brown",
@@ -61,6 +56,41 @@ namespace ShoppingControl
             };
 
             return sampleCustomers;
+        }
+
+        public void SetStatus(string newStatus)
+        {
+            if (newStatus == "Active" || newStatus == "Inactive")
+            {
+                status = newStatus;
+            }
+            else
+            {
+                throw new ArgumentException("Invalid status. Must be either 'Active' or 'Inactive'.");
+            }
+        }
+
+        public override void UpdateProfile()
+        {
+            Console.WriteLine("Updating profile for customer...");
+        
+            Console.Write("Enter new username: ");
+            string newUsername = Console.ReadLine();
+            Console.Write("Enter new password: ");
+            string newPassword = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(newUsername))
+                UserName = newUsername;
+
+            if (!string.IsNullOrWhiteSpace(newPassword))
+                Password = newPassword;
+
+            Console.WriteLine("Profile updated successfully!");
+        }
+
+        public override void Logout()
+        {
+            Console.WriteLine("Customer logged out.");
         }
         
         public void DisplayCustomerMenu()
@@ -101,34 +131,6 @@ namespace ShoppingControl
                         break;
                 }
             }
-        }
-
-        public override void UpdateProfile()
-        {
-            Console.WriteLine("Updating profile for customer...");
-        
-            Console.Write("Enter new username: ");
-            string newUsername = Console.ReadLine();
-            Console.Write("Enter new password: ");
-            string newPassword = Console.ReadLine();
-            Console.Write("Enter status (Active/Inactive): ");
-            string newStatus = Console.ReadLine();
-
-            if (!string.IsNullOrWhiteSpace(newUsername))
-                UserName = newUsername;
-
-            if (!string.IsNullOrWhiteSpace(newPassword))
-                Password = newPassword;
-
-            if (!string.IsNullOrWhiteSpace(newStatus))
-                Status = newStatus;
-
-            Console.WriteLine("Profile updated successfully!");
-        }
-
-        public override void Logout()
-        {
-            Console.WriteLine("Customer logged out.");
         }
 
         private void ViewProducts()
