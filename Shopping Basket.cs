@@ -77,14 +77,14 @@ public class Program
         Product softwareProgramming = new Product(1, "Software Programming", "C# for beginners", 12.99, 25, 4);
         Product Blender = new Product(2, "Blender", "NutriBullet Pro", 89.99, 15, 2);
 
-        basket.AddItem(laptop);
-        basket.AddItem(smartphone);
+        basket.AddItem(Software Programming);
+        basket.AddItem(Blender);
 
         // Display items in the basket
         basket.DisplayItems();
 
         // Update quantity of a product
-        basket.UpdateItemQuantity(smartphone, 3);
+        basket.UpdateItemQuantity(Software Programming, 50);
 
         // Calculate total cost
         Console.WriteLine("Total cost: " + basket.CalculateTotal());
