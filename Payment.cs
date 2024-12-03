@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class Payment
 {
-    public int PaymentId { get; set; }
-    public int OrderId { get; set; }
-    public DateTime PaymentDate { get; set; }
-    public double PaymentAmount { get; set; }
+    private int PaymentId { get; set; }
+    private int OrderId { get; set; }
+    private DateTime PaymentDate { get; set; }
+    private double PaymentAmount { get; set; }
 }
