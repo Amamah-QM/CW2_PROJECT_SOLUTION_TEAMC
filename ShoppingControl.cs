@@ -345,7 +345,7 @@ public class ShoppingControl
         }
     }
 
-    private void RemoveCategory()
+    /*private void RemoveCategory()
     {
         try
         {
@@ -367,7 +367,7 @@ public class ShoppingControl
         {
             Console.WriteLine($"Error removing category: {ex.Message}");
         }
-    }
+    }*/// Note: AS per brief we do not want to be able to delete existing product categories from the system
 
     private void UpdateCategory()
     {
