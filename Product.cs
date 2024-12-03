@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class Product
 {
   // properties to store relevant information
