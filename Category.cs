@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class Category
 {
     // Basic category information for product organization
