@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class Payment
 {
     public int PaymentId { get; set; }
