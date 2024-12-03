@@ -1,5 +1,8 @@
- public class Order
-    {
+using System;
+using System.Collections.Generic;
+
+public class Order
+{
         public int OrderId { get; set; }
         public DateTime DateOrdered { get; set; }
         public string OrderStatus { get; set; }
@@ -10,4 +13,4 @@
             DateOrdered = dateOrdered;
             OrderStatus = orderStatus;
         }
-    }
+}
