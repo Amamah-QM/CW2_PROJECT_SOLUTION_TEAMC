@@ -3,10 +3,34 @@ using System.Collections.Generic;
 
 public class Payment
 {
-    private int PaymentId { get; set; }
-    private int OrderId { get; set; }
-    private DateTime PaymentDate { get; set; }
-    private double PaymentAmount { get; set; }
+    private int paymentId;
+    private int orderId;
+    private DateTime paymentDate;
+    private double paymentAmount;
+
+    public int PaymentID
+        {
+            get { return paymentId; } 
+            set { paymentId = value; } 
+        }
+
+    public int OrderID
+        {
+            get { return orderId; } 
+            set { orderId = value; } 
+        }
+
+    public DateTime PaymentDate
+        {
+            get { return paymentDate; } 
+            set { paymentDate = value; } 
+        }
+
+    public double PaymentAmount
+        {
+            get { return paymentAmount; } 
+            set { paymentAmount = value; } 
+        }
 
     // Constructor to initialize the Payment object with given values
     public Payment(int paymentId, int orderId, DateTime paymentDate, double paymentAmount)
@@ -26,14 +50,14 @@ public class Payment
         Console.WriteLine($"Payment Amount: {PaymentAmount}");
     }
 }
-public class Program
-{
-    public static void Main()
-    {
+// public class Program
+// {
+//    public static void Main()
+//    {
         // Sample payment data
-        Payment payment = new Payment(1, 10, DateTime.Now, 102.98);
+  //      Payment payment = new Payment(1, 10, DateTime.Now, 102.98);
 
         // Display the payment details
-        payment.DisplayPaymentDetails();
-    }
-}
+  //      payment.DisplayPaymentDetails();
+//    }
+// }
