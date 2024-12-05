@@ -34,6 +34,7 @@ namespace ShoppingControl
             {
                 new Customer
                 {
+                    UserId = 3,
                     UserName = "john_doe",
                     Password = "password123",
                     Role = "Customer",
@@ -41,8 +42,9 @@ namespace ShoppingControl
                 },
                 new Customer
                 {
+                    UserId = 4,
                     UserName = "jane_smith",
-                    Password = "securepass",
+                    Password = "garage1",
                     Role = "Customer",
                     Status = "Inactive"
                 },
@@ -104,7 +106,7 @@ namespace ShoppingControl
                 Console.WriteLine("2. Add Product to Basket");
                 Console.WriteLine("3. View Shopping Basket");
                 Console.WriteLine("4. Checkout");
-                Console.WriteLine("5. Logout");
+               // Console.WriteLine("5. Logout"); //
                 Console.Write("Enter your choice: ");
 
                 string choice = Console.ReadLine();
@@ -122,10 +124,10 @@ namespace ShoppingControl
                     case "4":
                         Checkout();
                         break;
-                    case "5":
-                        Console.WriteLine("Logging out...");
-                        running = false;
-                        break;
+               //     case "5":
+                     //   Console.WriteLine("Logging out..."); //
+                   //     running = false; //
+                   //     break; //
                     default:
                         Console.WriteLine("Invalid option. Please try again.");
                         break;
