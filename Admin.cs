@@ -33,12 +33,12 @@ namespace ShoppingControl
         {
             try
             {
-                Console.WriteLine("Creating sample admins...");
+                Console.WriteLine("Sample admins...");
 
                 userList.Add(new Admin(productList, userList, categoryList, paymentList)
                 {
                     UserId = 1,
-                    UserName = "Admin1",
+                    UserName = "admin",
                     Password = "admin123",
                     UserEmail = "admin1@example.com",
                     LastLogin = DateTime.Now
@@ -47,13 +47,13 @@ namespace ShoppingControl
                 userList.Add(new Admin(productList, userList, categoryList, paymentList)
                 {
                     UserId = 2,
-                    UserName = "Admin2",
+                    UserName = "admin59",
                     Password = "admin456",
                     UserEmail = "admin2@example.com",
                     LastLogin = DateTime.Now
                 });
 
-                Console.WriteLine("Sample admins created successfully.");
+                Console.WriteLine("Sample admins displayed successfully.");
             }
             catch (Exception ex)
             {
@@ -67,6 +67,8 @@ namespace ShoppingControl
             try
             {
                 Console.WriteLine("\n--- Add Product ---");
+                Console.Write("Enter product ID: ");
+                string productName = Console.ReadLine();
                 Console.Write("Enter product name: ");
                 string productName = Console.ReadLine();
 
@@ -277,7 +279,7 @@ namespace ShoppingControl
 
                     case 4:
                         Console.WriteLine("\n--- Update Customer Status ---");
-                        Console.Write("Enter customer ID to update status: ");
+                        Console.Write("Enter User ID to update status: ");
                         int customerId = int.Parse(Console.ReadLine());
 
                         Customer customer = userList.Find(u => u.UserId == customerId) as Customer;
@@ -314,53 +316,102 @@ namespace ShoppingControl
             }
         }
 
-        // Method to calculate total revenue
-        public void CalculateTotalRevenue()
+        // Method to calculate total value
+        public void CalculateTotalValue()
         {
             try
             {
-                double totalRevenue = 0;
+                double totalValue = 0;
 
                 foreach (Payment payment in paymentList)
                 {
-                    totalRevenue += payment.PaymentAmount;
+                    totalValue += payment.PaymentAmount;
                 }
 
-                Console.WriteLine($"Total revenue: ${totalRevenue:F2}");
+                Console.WriteLine($"Total value: ${totalValue:F2}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error calculating revenue: {ex.Message}");
+                Console.WriteLine($"Error calculating value: {ex.Message}");
             }
         }
 
-        // Method to add a new category
-        public void AddCategory()
+        public void ManageCategories()
+    {
+        Console.WriteLine("\n--- Manage Categories ---");
+        Console.WriteLine("1. Add Category");
+        Console.WriteLine("2. Update Category");
+        Console.Write("Enter your choice: ");
+
+        string choice = Console.ReadLine();
+        switch (choice)
         {
-            try
+            case "1":
+                AddCategory();
+                break;
+            case "2":
+                UpdateCategory();
+                break;
+            default:
+                Console.WriteLine("Invalid option. Returning to main menu.");
+                break;
+        }
+    }
+
+    private void AddCategory()
+    {
+        try
+        {
+            Console.Write("Enter category name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter category description: ");
+            string description = Console.ReadLine();
+
+            Category category = new Category
             {
-                Console.WriteLine("\n--- Add Category ---");
-                Console.Write("Enter category name: ");
-                string categoryName = Console.ReadLine();
+                CategoryId = categoryList.Count + 1,
+                CategoryName = name,
+                CategoryDescription = description
+            };
+            categoryList.Add(category);
+            Console.WriteLine("Category added successfully.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error adding category: {ex.Message}");
+        }
+    }
 
-                Console.Write("Enter category description: ");
-                string categoryDescription = Console.ReadLine();
+    private void UpdateCategory()
+    {
+        try
+        {
+            Console.Write("Enter category name to update: ");
+            string name = Console.ReadLine();
 
-                Category newCategory = new Category
-                {
-                    CategoryId = categoryList.Count + 1,
-                    CategoryName = categoryName,
-                    CategoryDescription = categoryDescription
-                };
+            Category category = categoryList.Find(c => c.CategoryName == name);
+            if (category != null)
+            {
+                Console.Write("Enter new category name: ");
+                string newName = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newName)) category.CategoryName = newName;
 
-                categoryList.Add(newCategory);
-                Console.WriteLine($"Category '{categoryName}' added successfully.");
+                Console.Write("Enter new category description: ");
+                string newDescription = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newDescription)) category.CategoryDescription = newDescription;
+
+                Console.WriteLine("Category updated successfully.");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine($"Error adding category: {ex.Message}");
+                Console.WriteLine("Category not found.");
             }
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating category: {ex.Message}");
+        }
+    }
 
         // Method to update the admin profile (override)
         public override void UpdateProfile()
