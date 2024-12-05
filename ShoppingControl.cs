@@ -18,9 +18,9 @@ public class ShoppingControl
 
     // Methods
 
-    /// <summary>
-    /// Authenticates a user based on username and password.
-    /// </summary>
+
+    // Authenticates a user based on username and password.
+
     public bool Authenticate(string username, string password)
     {
         try
@@ -43,10 +43,10 @@ public class ShoppingControl
         }
     }
 
-    /// <summary>
-    /// Displays the main menu and handles user input.
-    /// </summary>
-    public void DisplayMainMenu()
+
+    // Displays the main menu and handles user input.
+
+    public void DisplayAdminMenu()
     {
         bool running = true;
 
@@ -56,8 +56,7 @@ public class ShoppingControl
             Console.WriteLine("1. Manage Users");
             Console.WriteLine("2. Manage Products");
             Console.WriteLine("3. Manage Categories");
-            Console.WriteLine("4. View Shopping Basket");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("4. Exit");
             Console.Write("Enter your choice: ");
 
             string choice = Console.ReadLine();
@@ -73,9 +72,6 @@ public class ShoppingControl
                     ManageCategories();
                     break;
                 case "4":
-                    DisplayBasket();
-                    break;
-                case "5":
                     running = false;
                     Console.WriteLine("Exiting application. Goodbye!");
                     break;
@@ -86,9 +82,9 @@ public class ShoppingControl
         }
     }
 
-    /// <summary>
-    /// Manages user-related operations.
-    /// </summary>
+
+    // Manages user-related operations.
+
     public void ManageUsers()
     {
         Console.WriteLine("\n--- Manage Users ---");
@@ -183,9 +179,9 @@ public class ShoppingControl
         }
     }
 
-    /// <summary>
-    /// Manages product-related operations.
-    /// </summary>
+
+    // Manages product-related operations.
+
     public void ManageProducts()
     {
         Console.WriteLine("\n--- Manage Products ---");
@@ -292,15 +288,14 @@ public class ShoppingControl
         }
     }
 
-    /// <summary>
-    /// Manages category-related operations.
-    /// </summary>
+
+    // Manages category-related operations.
+
     public void ManageCategories()
     {
         Console.WriteLine("\n--- Manage Categories ---");
         Console.WriteLine("1. Add Category");
-        Console.WriteLine("2. Remove Category");
-        Console.WriteLine("3. Update Category");
+        Console.WriteLine("2. Update Category");
         Console.Write("Enter your choice: ");
 
         string choice = Console.ReadLine();
@@ -310,9 +305,6 @@ public class ShoppingControl
                 AddCategory();
                 break;
             case "2":
-                RemoveCategory();
-                break;
-            case "3":
                 UpdateCategory();
                 break;
             default:
@@ -345,30 +337,6 @@ public class ShoppingControl
         }
     }
 
-    /*private void RemoveCategory()
-    {
-        try
-        {
-            Console.Write("Enter category name to remove: ");
-            string name = Console.ReadLine();
-
-            Category category = categoryList.Find(c => c.CategoryName == name);
-            if (category != null)
-            {
-                categoryList.Remove(category);
-                Console.WriteLine("Category removed successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Category not found.");
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error removing category: {ex.Message}");
-        }
-    }*/// Note: AS per brief we do not want to be able to delete existing product categories from the system
-
     private void UpdateCategory()
     {
         try
@@ -400,34 +368,27 @@ string newName = Console.ReadLine();
         }
     }
 
-    /// <summary>
-    /// Displays the shopping basket and its contents.
-    /// </summary>
-    public void DisplayBasket()
-    {
-        try
-        {
-            Console.WriteLine("\n--- Shopping Basket ---");
-            shoppingBasket.DisplayContents();
-            Console.WriteLine($"Total: ${shoppingBasket.CalculateTotal()}");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error displaying basket: {ex.Message}");
-        }
-    }
-
     // Sample data initializer
     private void InitializeSampleData()
     {
         // Sample users
-        userList.Add(new User { UserName = "admin", Password = "admin123" });
-        userList.Add(new User { UserName = "customer", Password = "cust123" });
+        userList.Add(new User { UserId= 1, UserName = "admin" });
+        userList.Add(new User { UserId= 2, UserName = "admin59" });
+        userList.Add(new User { UserId= 3, UserName = "john_doe" });
+        userList.Add(new User { UserId= 4, UserName = "jane_smith" });
+        userList.Add(new User { UserId= 5, UserName = "alice_brown" });
 
         // Sample categories
-        categoryList.Add(new Category { CategoryName = "Electronics", CategoryDescription = "All electronic items" });
-        categoryList.Add(new Category { CategoryName = "Clothing", CategoryDescription = "Apparel and fashion" });
+        categoryList.Add(new Category { CategoryID = 1, CategoryName = "Electronics", CategoryDescription = "Devices and gadgets" });
+        categoryList.Add(new Category { CategoryID = 2, CategoryName = "Household", CategoryDescription = "Household items and appliances" });
+        categoryList.Add(new Category { CategoryID = 3, CategoryName = "Clothing", CategoryDescription = "Clothing for men, women, and children" });
+        categoryList.Add(new Category { CategoryID = 4, CategoryName = "Books", CategoryDescription = "Fiction, non-fiction, educational, and more" });
+        categoryList.Add(new Category { CategoryID = 5, CategoryName = "Toys & Games", CategoryDescription = "Toys for kids, board games, and puzzles" });
 
         // Sample products
-        productList.Add(new Product { ProductName = "Smartphone", ProductDescription = "Latest model smartphone", Price = 699.99, StockQuantity = 50 });
-        productList.Add(new Product { ProductName = "Laptop", ProductDescription = "Gaming laptop with high specs", Price = 1199.99, StockQuantity = 20 });
+        productList.Add(new Product { ProductID = 1, ProductName = "LED TV", ProductDescription = "65 inch Samsung LED TV", Price = 459.99, StockQuantity = 5, CategoryID = 1 });
+        productList.Add(new Product { ProductID = 2, ProductName = "Vacuum Cleaner", ProductDescription = "Dyson V11 Vacuum Cleaner", Price = 599.99, StockQuantity = 10, CategoryID = 2 });
+        productList.Add(new Product { ProductID = 3, ProductName = "Running Shoes", ProductDescription = "Nike Air Zoom Pegasus", Price = 120.00, StockQuantity = 20, CategoryID = 3 });
+        productList.Add(new Product { ProductID = 4, ProductName = "Software Programming", ProductDescription = "C# for beginners", Price = 12.99, StockQuantity = 25, CategoryID = 4 });
+        productList.Add(new Product { ProductID = 5, ProductName = "Blender", ProductDescription = "NutriBullet Pro", Price = 89.99, StockQuantity = 15, CategoryID = 2 });
+        productList.Add(new Product { ProductID = 6, ProductName = "Smartphone", ProductDescription = "iPhone13", Price = 999.99, StockQuantity = 8, CategoryID = 5 });
