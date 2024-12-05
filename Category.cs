@@ -4,14 +4,32 @@ using System.Collections.Generic;
 public class Category
 {
     // Basic category information for product organization
-    private int CategoryId { get; set; }
-    private string CategoryName { get; set; }
-    private string CategoryDescription { get; set; }
+    private int categoryId;
+    private string categoryName;
+    private string categoryDescription;
+
+    public int CategoryID
+    {
+        get { return CategoryID; } 
+        set { CategoryID = value; } 
+    }
+
+    public int CategoryName
+    {
+        get { return CategoryName; } 
+        set { CategoryName = value; } 
+    }
+
+    public int CategoryDescription
+    {
+        get { return CategoryDescription; } 
+        set { CategoryDescription = value; } 
+    }
    
     // Creates a new category with required information
     public Category(int categoryId, string categoryName, string categoryDescription)
     {
-        CategoryId = categoryId;
+        CategoryID = categoryId;
         CategoryName = categoryName;
         CategoryDescription = categoryDescription;
     }
