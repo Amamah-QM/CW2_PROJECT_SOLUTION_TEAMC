@@ -4,12 +4,48 @@ using System.Collections.Generic;
 public class Product
 {
   // properties to store relevant information
-  private int ProductID { get; set; }
-  private string ProductName { get; set; }
-  private string ProductDescription { get; set; }
-  private double Price { get; set; }
-  private int StockQuantity { get; set; }
-  private int CategoryID { get; set; }
+  private int productId;
+  private string productName;
+  private string productDescription;
+  private double price;
+  private int stockQuantity;
+  private int categoryId;
+
+  public int ProductID
+        {
+            get { return productId; } 
+            set { productId = value; } 
+        }
+
+  public string ProductName
+        {
+            get { return productName; } 
+            set { productName = value; } 
+        }
+
+  public string ProductDescription
+        {
+            get { return productDescription; } 
+            set { productDescription = value; } 
+        }
+
+  public double Price
+        {
+            get { return price; } 
+            set { price = value; } 
+        }
+
+  public int StockQuantity
+        {
+            get { return stockQuantity; } 
+            set { stockQuantity = value; } 
+        }
+
+  public int CategoryID
+        {
+            get { return categoryId; } 
+            set { categoryId = value; } 
+        }
 
   // Constructor to initialize a new product with the given details
   public int Product ( int productId, string productName, string productDescription, double price, int stockQuantity, int categoryId)
