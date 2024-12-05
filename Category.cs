@@ -14,13 +14,13 @@ public class Category
         set { CategoryID = value; } 
     }
 
-    public int CategoryName
+    public string CategoryName
     {
         get { return CategoryName; } 
         set { CategoryName = value; } 
     }
 
-    public int CategoryDescription
+    public string CategoryDescription
     {
         get { return CategoryDescription; } 
         set { CategoryDescription = value; } 
