@@ -25,3 +25,53 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
             List<Category> categories = new List<Category>();
             List<Product> products = new List<Product>();
 
+           // Create Admins
+            foreach (var row in adminDataList)
+            {
+                int userId = int.Parse(row["UserId"]);
+                string userName = row["UserName"];
+                string password = row["Password"];
+                string userEmail = row["UserEmail"];
+                DateTime lastLogin = DateTime.Parse(row["LastLogin"]);
+
+                Admin admin = new Admin(userId, userName, password, userEmail, lastLogin);
+                users.Add(admin);
+            }
+
+            // Create Customers
+            foreach (var row in customerDataList)
+            {
+                int userId = int.Parse(row["UserId"]);
+                string userName = row["UserName"];
+                string password = row["Password"];
+                string role = row["Role"];
+                string status = row["Status"];
+
+                Customer customer = new Customer(userId, userName, password, role, status);
+                users.Add(customer);
+            }
+
+            // Create Categories
+            foreach (var row in categoryDataList)
+            {
+                int categoryId = int.Parse(row["CategoryId"]);
+                string categoryName = row["CategoryName"];
+                string description = row["Description"];
+
+                Category category = new Category(categoryId, categoryName, description);
+                categories.Add(category);
+            }
+
+            // Create Products
+            foreach (var row in productDataList)
+            {
+                int productId = int.Parse(row["ProductId"]);
+                string productName = row["ProductName"];
+                decimal price = decimal.Parse(row["Price"]);
+                int categoryId = int.Parse(row["CategoryId"]);
+
+                Product product = new Product(productId, productName, price, categoryId);
+                products.Add(product);
+            }
+
+
