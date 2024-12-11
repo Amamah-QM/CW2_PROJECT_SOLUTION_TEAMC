@@ -116,4 +116,20 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
             return dataList;
         }
     }
+        // Base class User
+    public abstract class User
+    {
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string UserEmail { get; set; }
+
+        public User(int userId, string userName, string password, string userEmail)
+        {
+            UserId = userId;
+            UserName = userName;
+            Password = password;
+            UserEmail = userEmail;
+        }
+
 
