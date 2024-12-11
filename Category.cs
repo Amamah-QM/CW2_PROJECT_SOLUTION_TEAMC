@@ -10,20 +10,20 @@ public class Category
 
     public int CategoryID
     {
-        get { return CategoryID; } 
-        set { CategoryID = value; } 
+        get { return categoryId; } 
+        set { categoryId = value; } 
     }
 
     public string CategoryName
     {
-        get { return CategoryName; } 
-        set { CategoryName = value; } 
+        get { return categoryName; } 
+        set { categoryName = value; } 
     }
 
     public string CategoryDescription
     {
-        get { return CategoryDescription; } 
-        set { CategoryDescription = value; } 
+        get { return categoryDescription; } 
+        set { categoryDescription = value; } 
     }
    
     // Creates a new category with required information
@@ -38,7 +38,7 @@ public class Category
     public void DisplayCategoryInfo()
     {
         Console.WriteLine($"\n--- Category Info ---");
-        Console.WriteLine($"ID: {CategoryId}");
+        Console.WriteLine($"ID: {CategoryID}");
         Console.WriteLine($"Name: {CategoryName}");
         Console.WriteLine($"Description: {CategoryDescription}");
     }
