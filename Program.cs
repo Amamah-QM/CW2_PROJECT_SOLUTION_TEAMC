@@ -95,3 +95,25 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
             }
         }
 
+        // Helper method to read CSV file
+        static List<Dictionary<string, string>> ReadCsvFile(string filePath)
+        {
+            List<Dictionary<string, string>> dataList = new List<Dictionary<string, string>>();
+            var lines = File.ReadAllLines(filePath);
+            var headers = lines[0].Split(',');
+
+            for (int i = 1; i < lines.Length; i++)
+            {
+                var values = lines[i].Split(',');
+                var row = new Dictionary<string, string>();
+                for (int j = 0; j < headers.Length; j++)
+                {
+                    row[headers[j]] = values[j];
+                }
+                dataList.Add(row);
+            }
+
+            return dataList;
+        }
+    }
+
