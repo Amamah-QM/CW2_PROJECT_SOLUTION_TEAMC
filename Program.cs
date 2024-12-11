@@ -74,4 +74,24 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
                 products.Add(product);
             }
 
+            
+            // Display User and Product/Category details
+            Console.WriteLine("User Details:");
+            foreach (var user in users)
+            {
+                Console.WriteLine(user.GetDetails());
+            }
+
+            Console.WriteLine("\nCategory Details:");
+            foreach (var category in categories)
+            {
+                Console.WriteLine(category.GetDetails());
+            }
+
+            Console.WriteLine("\nProduct Details:");
+            foreach (var product in products)
+            {
+                Console.WriteLine(product.GetDetails());
+            }
+        }
 
