@@ -153,4 +153,66 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
         }
     }
 
+    // Customer class
+    public class Customer : User
+    {
+        public string Role { get; set; }
+        public string Status { get; set; }
+
+        public Customer(int userId, string userName, string password, string role, string status)
+            : base(userId, userName, password, userEmail)
+        {
+            Role = role;
+            Status = status;
+        }
+
+        public override string GetDetails()
+        {
+            return $"Customer: {UserName} - Status: {Status}";
+        }
+    }
+
+    // Category class
+    public class Category
+    {
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public string Description { get; set; }
+
+        public Category(int categoryId, string categoryName, string description)
+        {
+            CategoryId = categoryId;
+            CategoryName = categoryName;
+            Description = description;
+        }
+
+        public string GetDetails()
+        {
+            return $"Category: {CategoryName} - Description: {Description}";
+        }
+    }
+
+    // Product class
+    public class Product
+    {
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public decimal Price { get; set; }
+        public int CategoryId { get; set; }
+
+        public Product(int productId, string productName, decimal price, int categoryId)
+        {
+            ProductId = productId;
+            ProductName = productName;
+            Price = price;
+            CategoryId = categoryId;
+        }
+
+        public string GetDetails()
+        {
+            return $"Product: {ProductName} - Price: {Price} - CategoryId: {CategoryId}";
+        }
+    }
+}
+
 
