@@ -116,7 +116,7 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
             return dataList;
         }
     }
-        // Base class User
+    // Base class User
     public abstract class User
     {
         public int UserId { get; set; }
@@ -131,5 +131,26 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
             Password = password;
             UserEmail = userEmail;
         }
+
+              public abstract string GetDetails();
+    }
+
+    // Admin class
+    public class Admin : User
+    {
+        
+        public DateTime LastLogin { get; set; }
+
+        public Admin(int userId, string userName, string password, string userEmail, DateTime lastLogin)
+            : base(userId, userName, password, userEmail)
+        {
+            LastLogin = lastLogin;
+        }
+
+        public override string GetDetails()
+        {
+            return $"Admin: {UserName} ({UserEmail}) - Last Login: {LastLogin}";
+        }
+    }
 
 
