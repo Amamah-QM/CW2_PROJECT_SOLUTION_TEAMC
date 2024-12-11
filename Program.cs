@@ -20,4 +20,8 @@ namespace CW2_PROJECT_SOLUTION_TEAMC
             List<Dictionary<string, string>> categoryDataList = ReadCsvFile(categoryFilePath);
             List<Dictionary<string, string>> productDataList = ReadCsvFile(productFilePath);
 
+            // Create lists for Admin, Customer, Category, and Product objects
+            List<User> users = new List<User>();
+            List<Category> categories = new List<Category>();
+            List<Product> products = new List<Product>();
 
