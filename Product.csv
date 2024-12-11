@@ -1,0 +1,7 @@
+ID,Name,Description,Price,StockQuantity,CategoryID
+1,LED TV,65 inch Samsung LED TV,459.99,5,1
+2,Vacuum Cleaner,Dyson V11 Vacuum Cleaner,599.99,10,2
+3,Running Shoes,Nike Air Zoom Pegasus,120.00,20,3
+4,Software programming,C# for beginners,12.99,25,4
+5,Blender,NutriBullet Pro,89.99,15,2
+6,Smartphone,iPhone 13,999.99,8,5
